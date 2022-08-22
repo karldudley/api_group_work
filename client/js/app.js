@@ -33,6 +33,19 @@ function submitPlayer(e){
         .catch(console.warn)
 };
 
+// //delete all players
+// function deletePlayers(e) {
+//     e.preventDefault();
+
+//     const options = { 
+//         method: 'DELETE',
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+
+
+// }
+
 // helpers
 function appendPlayers(p){
     p.forEach(appendPlayer);
