@@ -7,9 +7,9 @@ app.use(express.json())
 
 //football players array
 const players = [
-    {id: "1", name: "De Bruyne", team: "Manchester City", number: "17"},
-    {id: "2", name: "Kante", team: "Chelsea", number: "7"},
-    {id: "3", name: "Kane", team: "Spurs", number: "10"},
+    {id: 1, name: "De Bruyne", team: "Manchester City", number: 17},
+    {id: 2, name: "Kante", team: "Chelsea", number: 7},
+    {id: 3, name: "Kane", team: "Spurs", number: 10},
 ];
 
 //send message on homepage
@@ -31,12 +31,12 @@ app.get('/players', (req, res) => {
 app.get('/players/:id', (req, res) => {
     try {
       const playerId = parseInt(req.params.id);
-      //find the cat in the array
+      //find the player in the array
       const selectedPlayer = players.find(c => c.id === playerId)
       if (!selectedPlayer) {
         throw new Error('That player does not exist!')
       }
-      //show selected cat
+      //show selected player
       res.send(selectedPlayer)
     } catch (err) {
       console.log(err);
@@ -50,7 +50,10 @@ app.post('/players', (req, res) => {
     const newName = req.body.name
     const newTeam = req.body.team
     const newNumber = req.body.number
-    const newId = players[players.length - 1].id + 1
+    let newId = 1;
+    if (players.length > 0) {
+      newId = players[players.length - 1].id + 1
+    }
     let newPlayer = {name: newName, team: newTeam, number: newNumber}
   
     players.push({id: newId, ...newPlayer})

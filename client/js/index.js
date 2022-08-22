@@ -1,5 +1,7 @@
 // ********************************************
 // SETUP
+
+
 const btn = document.querySelector('button');
 const form = document.querySelector('#new-player-form');
 const form2 = document.querySelector('#delete-player-form');

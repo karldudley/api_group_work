@@ -43,6 +43,7 @@ function submitPlayer(e){
 
 //delete all players
 function deletePlayers(e) {
+    e.preventDefault();
     const options = { 
         method: 'DELETE',
         headers: {
@@ -84,14 +85,16 @@ function renderMessage(msgText){
 
 // ********************************************
 
-module.exports = {
-    getAllPlayers,
-    submitPlayer,
-    appendPlayers,
-    appendPlayer,
-    getMessage,
-    renderMessage,
-    deletePlayers
-}
+// // These don't work when running in the browser. Maybe need them when running on node
+// // If I need browser and node then I will have to use watchify to bundle them??
+// module.exports = {
+//     getAllPlayers,
+//     submitPlayer,
+//     appendPlayers,
+//     appendPlayer,
+//     getMessage,
+//     renderMessage,
+//     deletePlayers
+// }
 
 
