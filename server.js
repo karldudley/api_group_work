@@ -14,7 +14,7 @@ const players = [
 
 //send message on homepage
 app.get('/', (req, res) => {
-    res.send('Premier League Football Players')
+    res.send('Premier League Football Players Server')
   })
 
 // send message to say they can't create new entries here
