@@ -49,7 +49,7 @@ describe('api server testing', () => {
         .post('/players')
         .send(testData)
         .set('Accept', 'application/json')
-        .expect(500)
+        .expect(201)
         .expect({ ...testData}, done)
     })
 })
