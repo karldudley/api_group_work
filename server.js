@@ -7,9 +7,9 @@ app.use(express.json())
 
 //football players array
 const players = [
-    {id: 1, name: "De Bruyne", team: "Manchester City", number: 17},
-    {id: 2, name: "Kante", team: "Chelsea", number: 7},
-    {id: 3, name: "Kane", team: "Spurs", number: 10},
+    {id: "1", name: "De Bruyne", team: "Manchester City", number: "17"},
+    {id: "2", name: "Kante", team: "Chelsea", number: "7"},
+    {id: "3", name: "Kane", team: "Spurs", number: "10"},
 ];
 
 //send message on homepage
@@ -24,7 +24,7 @@ app.post('/', (req, res) => {
 
 //show all players in the database on this page as a json
 app.get('/players', (req, res) => {
-    res.json(players)
+    res.json(players);
 })
 
 //deal with requests to numbers afters /players. Throw error if player is not in database and display message
@@ -54,6 +54,7 @@ app.post('/players', (req, res) => {
     let newPlayer = {name: newName, team: newTeam, number: newNumber}
   
     players.push({id: newId, ...newPlayer})
+    console.log(req.body);
     res.status(201).send(newPlayer)
 })
 

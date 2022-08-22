@@ -33,18 +33,29 @@ function submitPlayer(e){
         .catch(console.warn)
 };
 
-// //delete all players
-// function deletePlayers(e) {
-//     e.preventDefault();
+//delete all players
+function deletePlayers() {
+    // e.preventDefault();
 
-//     const options = { 
-//         method: 'DELETE',
-//         headers: {
-//             "Content-Type": "application/json"
-//         }
+    const playerData = {
+        id: "1",
+        name: "test",
+        team: "test",
+        number: "6"
+    };
 
+    const options = { 
+        method: 'DELETE',
+        body: JSON.stringify(playerData),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
 
-// }
+    fetch('http://localhost:3000/players', options)
+    // .then(r => r.json())
+    .catch(console.warn)
+}
 
 // helpers
 function appendPlayers(p){
@@ -81,5 +92,6 @@ module.exports = {
     appendPlayers,
     appendPlayer,
     getMessage,
-    renderMessage
+    renderMessage,
+    deletePlayers
 }
