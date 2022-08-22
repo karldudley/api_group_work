@@ -8,6 +8,14 @@ function getAllPlayers(){
         .catch(console.warn)
 };
 
+// //Testing making a request to another api
+// function getAllPlayers() {
+//     fetch('https://reqres.in/api/users')
+//         .then(res => res.json())
+//         .then(data => console.log(data))
+//         .catch(err => console.log(err))
+// }
+
 // create player
 function submitPlayer(e){
     e.preventDefault();
@@ -34,26 +42,16 @@ function submitPlayer(e){
 };
 
 //delete all players
-function deletePlayers() {
-    // e.preventDefault();
-
-    const playerData = {
-        id: "1",
-        name: "test",
-        team: "test",
-        number: "6"
-    };
-
+function deletePlayers(e) {
     const options = { 
         method: 'DELETE',
-        body: JSON.stringify(playerData),
         headers: {
             "Content-Type": "application/json"
         }
     };
 
     fetch('http://localhost:3000/players', options)
-    // .then(r => r.json())
+    .then(r => console.log("All players deleted"))
     .catch(console.warn)
 }
 
@@ -95,3 +93,5 @@ module.exports = {
     renderMessage,
     deletePlayers
 }
+
+
